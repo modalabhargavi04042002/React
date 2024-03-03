@@ -1,0 +1,120 @@
+import * as React from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
+
+function createData(
+    sno= Number,
+    customer_name=String,
+    age= Number,
+    phone= Number,
+    location= String,
+    date= String,
+    time= String,
+ ) {
+    return {sno,customer_name,age,phone,location,date,time};
+  }
+  
+const rows = [
+  createData(1, 'Alice', 25, '123-456-7890', 'New York', '2024-02-28', '09:00:00'),
+  createData(2, 'Bob', 30, '234-567-8901', 'Los Angeles', '2024-02-28', '09:30:00'),
+  createData(3, 'Charlie', 35, '345-678-9012', 'Chicago', '2024-02-28', '10:00:00'),
+  createData(4, 'David', 40, '456-789-0123', 'Houston', '2024-02-28', '10:30:00'),
+  createData(5, 'Eve', 45, '567-890-1234', 'Miami', '2024-02-28', '11:00:00'),
+  createData(6, 'Frank', 50, '678-901-2345', 'Seattle', '2024-02-28', '11:30:00'),
+  createData(7, 'Grace', 55, '789-012-3456', 'Boston', '2024-02-28', '12:00:00'),
+  createData(8, 'Harry', 60, '890-123-4567', 'San Francisco', '2024-02-28', '12:30:00'),
+  createData(9, 'Ivy', 65, '901-234-5678', 'Atlanta', '2024-02-28', '13:00:00'),
+  createData(10, 'Jack', 70, '012-345-6789', 'Dallas', '2024-02-28', '13:30:00'),
+  createData(11, 'Kate', 75, '123-456-7890', 'New York', '2024-02-28', '14:00:00'),
+  createData(12, 'Liam', 80, '234-567-8901', 'Los Angeles', '2024-02-28', '14:30:00'),
+  createData(13, 'Mia', 85, '345-678-9012', 'Chicago', '2024-02-28', '15:00:00'),
+  createData(14, 'Noah', 90, '456-789-0123', 'Houston', '2024-02-28', '15:30:00'),
+  createData(15, 'Olivia', 95, '567-890-1234', 'Miami', '2024-02-28', '16:00:00'),
+  createData(16, 'Patrick', 10, '678-901-2345', 'Seattle', '2024-02-28', '16:30:00'),
+  createData(17, 'Queenie', 10, '789-012-3456', 'Boston', '2024-02-28', '17:00:00'),
+  createData(18, 'Robert', 10, '890-123-4567', 'San Francisco', '2024-02-28', '17:30:00'),
+  createData(19, 'Sophia', 15, '901-234-5678', 'Atlanta', '2024-02-28', '18:00:00'),
+  createData(20, 'Thomas', 20, '012-345-6789', 'Dallas', '2024-02-28', '18:30:00'),
+  createData(21, 'Ursula', 25, '123-456-7890', 'New York', '2024-02-28', '19:00:00'),
+  createData(22, 'Vincent', 30, '234-567-8901', 'Los Angeles', '2024-02-28', '19:30:00'),
+  createData(23, 'Wendy', 35, '345-678-9012', 'Chicago', '2024-02-28', '20:00:00'),
+  createData(24, 'Xander', 40, '456-789-0123', 'Houston', '2024-02-28', '20:30:00'),
+  createData(25, 'Yvonne', 45, '567-890-1234', 'Miami', '2024-02-28', '21:00:00'),
+  createData(26, 'Zach', 50, '678-901-2345', 'Seattle', '2024-02-28', '21:30:00'),
+  createData(27, 'Alice', 55, '789-012-3456', 'Boston', '2024-02-28', '22:00:00'),
+  createData(28, 'Bob', 60, '890-123-4567', 'San Francisco', '2024-02-28', '22:30:00'),
+  createData(29, 'Charlie', 65, '901-234-5678', 'Atlanta', '2024-02-28', '23:00:00'),
+  createData(30, 'David', 70, '012-345-6789', 'Dallas', '2024-02-28', '23:30:00'),
+  createData(31, 'Eve', 75, '123-456-7890', 'New York', '2024-02-29', '00:00:00'),
+  createData(32, 'Frank', 80, '234-567-8901', 'Los Angeles', '2024-02-29', '00:30:00'),
+  createData(33, 'Grace', 85, '345-678-9012', 'Chicago', '2024-02-29', '01:00:00'),
+  createData(34, 'Harry', 90, '456-789-0123', 'Houston', '2024-02-29', '01:30:00'),
+  createData (35, 'Ivy', 95, '567-890-1234', 'Miami', '2024-02-29', '02:00:00'),
+  createData(36, 'Jack', 20, '678-901-2345', 'Seattle', '2024-02-29', '02:30:00'),
+  createData(37, 'Kate', 25, '789-012-3456', 'Boston', '2024-02-29', '03:00:00'),
+  createData(38, 'Liam', 20, '890-123-4567', 'San Francisco', '2024-02-29', '03:30:00'),
+  createData(39, 'Mia', 25, '901-234-5678', 'Atlanta', '2024-02-29', '04:00:00'),
+  createData(40,'John Doe',30,'123-456-7890','New York','2024-02-28','10:00:00'),
+  createData(41,'Jane Smith',25,'987-654-3210','Los Angeles','2024-02-28','11:00:00'),
+  createData(42,'Alice johnson',35,'555-555-5555','Chicago','2024-02-28','12:00:00'),
+  createData(43,'Bob Brown',40,'111-222-3333','houston','2024-02-28','13:00:00'),
+  createData(44,'Eve White',45,'444-444-44444','Miami','2024-02-28','14:00:00'),
+  createData(45,'Charlie Green',50,'777-888-9999','Seattle','2024-02-28','15:00:00'),
+  createData(46,'Grace Lee',55,'222-333-4444','Boston','2024-02-28','16:00:00'),
+  createData(47,'Tom Brown',60,'666-777-8888','San Fransico','2024-02-28','17:00:00'),
+  createData(48,'Emily davis',65,'999-888-7777','Atlanta','2024-02-28','18:00:00'),
+  createData(49,'Sam Wilson',70,'333-222-1111','Dallas','2024-02-28','19:00:00'),
+  createData(50,'Sarah White',55,'333-444-5555','Miami','2024-02-28','23:00:00')
+
+
+
+
+];
+
+ const  TableData= () => {
+  return (
+    <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table" border="2">
+        <TableHead>
+          <TableRow>
+            <TableCell>sno</TableCell>
+            <TableCell align="right">customer_name</TableCell>
+            <TableCell align="right">Age</TableCell>
+            <TableCell align="right">Phone no</TableCell>
+            <TableCell align="right" >Location</TableCell>
+            <TableCell align="right" >Date</TableCell>
+            <TableCell align="right">Time</TableCell>
+
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <TableRow
+              key={row.name}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {row.name}
+              </TableCell>
+              <TableCell align="right" >{row.sno}</TableCell>
+              <TableCell  align="right">{row.customer_name}</TableCell>
+              <TableCell align="right" >{row.age}</TableCell>
+              <TableCell align="right">{row.phone}</TableCell>
+              <TableCell align="right">{row.location}</TableCell>
+              <TableCell align="right">{row.date}</TableCell>
+              <TableCell align="right">{row.time}</TableCell>
+
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+}
+export default TableData;
